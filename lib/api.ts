@@ -36,12 +36,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 export function resolvePhotoUrl(url: string): string {
-  // Photo/AssetVersion URLs are now full Vercel Blob URLs (e.g.
-  // https://xyz.public.blob.vercel-storage.com/...), not relative paths
-  // served by this API. Only prefix with API_BASE for the old-style
-  // relative path, kept here only so any already-stored old records with a
-  // "/uploads/..." url don't render as a broken image.
-  if (url.startsWith('http://') || url.startsWith('https://')) return url;
   return `${API_BASE}${url}`;
 }
 
