@@ -12,6 +12,14 @@ const nextConfig = {
         port: '4000',
         pathname: '/**',
       },
+      {
+        // Every photo and AI-generated image is now served from Vercel Blob.
+        // Hostnames look like {storeId}.public.blob.vercel-storage.com —
+        // this wildcard covers any store without needing the exact subdomain.
+        protocol: 'https',
+        hostname: '*.public.blob.vercel-storage.com',
+        pathname: '/**',
+      },
     ],
   },
 }
